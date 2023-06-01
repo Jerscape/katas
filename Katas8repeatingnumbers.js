@@ -4,25 +4,35 @@ function repeatNumbers(array) {
   let repetition = 0
   tempArray= []
   let k = "num"
-  let result = 0
+  let result = ""
+  let final = ""
 
   //first for loop seperates out sub arrays
   for(let i =0; i < array.length; i++){
    
     num = array[i][0]
     repetition = array[i][1];
-    result = num * repetition
-    tempArray.push(""+ result)
+    for(let j = 0; j < repetition; j++){
+      result = result + num
+    }
     
     
-    //https://www.geeksforgeeks.org/how-to-use-dynamic-variable-names-in-javascript/
-    //eval('var ' + "k" + i + '=' + "i" + ';')
-    //console.log("num 1 = " + num0)
+    //tempArray.push(""+ result)
+
+    if(i < array.length-1){
+      final = final + result + ", "
+      result = ""
+    }
+
+    else{
+      
+      final = final + result
+    }
 
 
-  }
+  }//end outer for
 //use to string method
-let final = tempArray.toString()
+//let final = tempArray.toString()
 
 return final
 
@@ -30,5 +40,8 @@ return final
 
 //testing
 
-let myArray = [[1, 2], [2, 3]]
-console.log(repeatNumbers(myArray))
+//let myArray = [[1, 2], [2, 3]]
+//console.log(repeatNumbers(myArray))
+console.log(repeatNumbers([[1, 10]]));
+console.log(repeatNumbers([[1, 2], [2, 3]]));
+console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
