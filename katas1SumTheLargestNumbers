@@ -1,0 +1,41 @@
+const sumLargestNumbers = function(array) {
+let internalArray = array
+let highestValue = 0
+let secondHighestValue = 0
+let spliceIndex = 0;
+let sum = 0
+
+//assess for 1st highest value
+for(let i = 0; i < internalArray.length; i++){
+  if(internalArray[i] > highestValue) {
+  highestValue = internalArray[i]
+  spliceIndex = i
+  }
+}
+
+//remove highest value from array
+internalArray.splice(spliceIndex, 1)
+
+//assess for 2nd highest value
+for(let i = 0; i < internalArray.length; i++){
+  if(internalArray[i] > secondHighestValue){
+    secondHighestValue = internalArray[i]
+
+  }
+
+}
+
+ sum = highestValue + secondHighestValue
+ return sum
+};
+
+
+let testArray= [5, 7, 3, 6, 4, 25]
+
+//testing
+
+console.log(sumLargestNumbers(testArray))
+console.log(sumLargestNumbers([1, 10]));
+console.log(sumLargestNumbers([1, 2, 3]));
+console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]))
+// https://gist.github.com/Jerscape/6763e47626c1757a1fa10d13528ccc13

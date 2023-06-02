@@ -1,0 +1,46 @@
+
+
+const checkAir = function (samples, threshold) {
+  // Code here!
+let cleanCount = 0
+let dirtyCount = 0
+let ratio = 0
+let total = 0
+
+  for(let i = 0; i < samples.length; i++) {
+    if(samples[i] === "dirty"){
+      //console.log("clean = " + samples[i])
+      dirtyCount = dirtyCount + 1
+    }
+
+    total = total + 1
+  }
+
+  ratio = dirtyCount/total
+
+  if(ratio < threshold){
+    return "clean"
+
+  }
+
+  else{
+    return "polluted"
+  }
+
+
+};
+
+console.log(checkAir(
+  ['clean', 'clean', 'dirty', 'clean', 'dirty', 'clean', 'clean', 'dirty', 'clean', 'dirty'],
+  0.3
+));
+
+console.log(checkAir(
+  ['dirty', 'dirty', 'dirty', 'dirty', 'clean'],
+  0.25
+));
+
+console.log(checkAir(
+  ['clean', 'dirty', 'clean', 'dirty', 'clean', 'dirty', 'clean'],
+  0.9
+))

@@ -1,0 +1,36 @@
+// https://gist.github.com/Jerscape/2bbfa9433906357d0059a063429761af
+
+const instructorWithLongestName = function(instructors) {
+  // Put your solution here
+  let longest = 0
+  let highestObject = {}
+  let length = 0
+  let sName = ""
+ 
+  for(let name in instructors){
+    sName = instructors[name].name
+    length = sName.length
+    if(length > longest){
+      longest = sName.length
+      highestObject = instructors[name]
+
+    }
+
+  }
+
+  return highestObject
+};
+
+//testing
+console.log(instructorWithLongestName([
+  {name: "Samuel", course: "iOS"},
+  {name: "Jeremiah", course: "Web"},
+  {name: "Ophiliaha", course: "Web"},
+  {name: "Donaldsson", course: "Web"}
+]));
+
+console.log(instructorWithLongestName([
+  {name: "Matthew", course: "Web"},
+  {name: "David", course: "iOS"},
+  {name: "Domascus", course: "Web"}
+]));

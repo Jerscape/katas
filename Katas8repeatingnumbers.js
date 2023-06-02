@@ -2,7 +2,7 @@ function repeatNumbers(array) {
 
   let num = 0
   let repetition = 0
-  tempArray= []
+  let tempArray= []
   let k = "num"
   let result = ""
   let final = ""

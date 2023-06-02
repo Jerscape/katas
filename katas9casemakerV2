@@ -4,8 +4,35 @@ const camelCase = function(input) {
   let result = ""
   let shift = -1
   let capital = ""
+  let hasSpaces = ""
 
-  for(let i = 0; i < input.length; i++) {
+
+  //assess if has spaces
+  for(i = 0; i<=input.length; i++) {    
+    character = input[i]
+    
+    if(character === " "){
+      hasSpaces = true
+      break
+
+    }
+
+    else{
+      if(i === 0 || i%5 != 0 ){
+        result = result + character
+        
+      }
+
+      else{
+        capital = character.toUpperCase()
+        result = result + capital
+
+      }
+    }
+}
+
+if(hasSpaces === true){
+  for(let i = 0; i <= input.length; i++) {
     character = input[i]
 
     if(character != " " && shift != i) {
@@ -23,10 +50,13 @@ const camelCase = function(input) {
     }
   }
 
+}
+
+
 return result
 
 };
 
 console.log(camelCase("this is a string"));
-console.log(camelCase("loopy lighthouse"));
+//console.log(camelCase("loopy lighthouse"));
 console.log(camelCase("supercalifragalisticexpialidocious"));

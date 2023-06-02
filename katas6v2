@@ -1,0 +1,56 @@
+//takes two parameters, an array of arrays, and the type of vehicle loooking (regular cars, small cars, motorycle)
+//UPPER CASE LETTERS = AVAILABLE, lowercase = UNavailable 
+//R can only park in R
+//S can park in R or S
+//M can park in R, S, or M
+
+const whereCanIPark = function (spots, vehicle) {
+  // Code here!
+let coordinates = []
+//let spotFound = ""
+
+  for(let x = 0; x < spots.length; x++) {
+    for(let y= 0; y < spots[x].length; y++){
+
+      //R can only park in R
+      if(vehicle === "regular" && spots[x][y] === "R"){
+        //coordinates.push(spots[x][y])
+        coordinates.push(x, y)
+        return coordinates
+
+      }
+      //end regular car assessment 
+
+      //S can park in R or S
+      else if(vehicle === "small" && (spots[x][y] === "R" ||spots[x][y] === "S")) {
+        coordinates.push(x, y)
+        return coordinates
+
+      }
+
+      else if(vehicle === "motorcycle" && (spots[x][y] === "R" ||spots[x][y] === "S" || spots[x][y] === "M" )) {
+        coordinates.push(x, y)
+        return coordinates
+      }
+
+      else{
+        return false
+      }
+
+
+  }//end inner for loop
+
+}//end outer for loop
+
+
+};
+
+console.log(whereCanIPark(
+  [
+    // COLUMNS ARE X
+    // 0    1    2    3    4    5
+    ['s', 's', 's', 's', 'r', 'M'], // 0 ROWS ARE Y
+    ['m', 'r', 's', 'm', 'r', 'm']  // 5
+  ],
+  'motorcycle'
+));

@@ -1,0 +1,30 @@
+const urlEncode = function(text){
+  // Put your solution 
+  let revisedText = ""
+  let stringLength = text.length 
+  let character = ""
+
+  for(let i = 0; i < text.length; i ++) {
+    character = text[i]
+
+    if(character === " " && (i != 0 && i != text.length -1)){
+      revisedText = revisedText + "%20"
+
+    }
+
+    else{
+      if(character != " ") {
+    revisedText = revisedText + text[i]
+
+      }
+    }
+
+
+  }//end for
+  return revisedText
+
+};
+
+console.log(urlEncode("Lighthouse Labs"));
+console.log(urlEncode(" Lighthouse Labs "));
+console.log(urlEncode("blue is greener than purple for sure"));
